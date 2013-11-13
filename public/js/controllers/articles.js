@@ -2,6 +2,7 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$ro
     $scope.global = Global;
 
     $scope.create = function() {
+        console.log("create article");
         var article = new Articles({
             title: this.title,
             content: this.content
@@ -25,6 +26,7 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$ro
     };
 
     $scope.update = function() {
+        console.log("update article");
         var article = $scope.article;
         if (!article.updated) {
             article.updated = [];

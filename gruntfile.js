@@ -2,25 +2,41 @@ module.exports = function(grunt) {
     // Project Configuration
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        /* Add uglify plugin to minify JS */
+        uglify: {
+            options: {
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd/mm/yyyy")%> */\n'
+            },
+            dist: {
+                src: 'public/js/**/*.js',
+                dest: 'public/dist/app.min.js'
+            }
+        },
+       removelogging: {
+            dist: {
+                src: "public/dist/app.min.js",
+                dest: "public/dist/app.min.js"
+            }
+        },
         watch: {
             jade: {
                 files: ['app/views/**'],
                 options: {
-                    livereload: true,
-                },
+                    livereload: true
+                }
             },
             js: {
                 files: ['public/js/**', 'app/**/*.js'],
                 tasks: ['jshint'],
                 options: {
-                    livereload: true,
-                },
+                    livereload: true
+                }
             },
             html: {
                 files: ['public/views/**'],
                 options: {
-                    livereload: true,
-                },
+                    livereload: true
+                }
             },
             css: {
                 files: ['public/css/**'],
@@ -68,7 +84,10 @@ module.exports = function(grunt) {
         }
     });
 
-    //Load NPM tasks 
+    //Load NPM tasks
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-remove-logging');
+
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-mocha-test');
@@ -79,9 +98,19 @@ module.exports = function(grunt) {
     //Making grunt default to force in order not to break the project.
     grunt.option('force', true);
 
-    //Default task(s).
-    grunt.registerTask('default', ['jshint', 'concurrent']);
+    //Default task(s). Executed when you're simply running 'grunt'
+    grunt.registerTask('default', ['jshint', 'uglify', 'removelogging']);
 
     //Test task.
     grunt.registerTask('test', ['env:test', 'mochaTest']);
+
+    //Uglify task.
+    grunt.registerTask('minify', 'uglify');
+
+    //Remove logging.
+    grunt.registerTask('remove-logging', 'removelogging');
+
+    //Start server
+    grunt.registerTask('server', 'concurrent');
 };
+
