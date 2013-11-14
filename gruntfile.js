@@ -81,7 +81,17 @@ module.exports = function(grunt) {
             test: {
                 NODE_ENV: 'test'
             }
-        }
+        },
+        sass: {                              // Task
+            dist: {                            // Target
+              options: {                       // Target options
+                style: 'expanded'
+              },
+              files: {                         // Dictionary of files
+                'public/css/common.css': 'public/css/common.scss',       // 'destination': 'source'               
+              }
+            }
+          }
     });
 
     //Load NPM tasks
@@ -95,11 +105,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-env');
 
+    grunt.loadNpmTasks('grunt-contrib-sass');
+
     //Making grunt default to force in order not to break the project.
     grunt.option('force', true);
 
     //Default task(s). Executed when you're simply running 'grunt'
-    grunt.registerTask('default', ['jshint', 'uglify', 'removelogging']);
+    grunt.registerTask('default', ['sassit', 'jshint', 'uglify', 'removelogging']);
 
     //Test task.
     grunt.registerTask('test', ['env:test', 'mochaTest']);
@@ -112,5 +124,8 @@ module.exports = function(grunt) {
 
     //Start server
     grunt.registerTask('server', 'concurrent');
+
+    //run sass
+    grunt.registerTask('sassit', 'sass');    
 };
 
