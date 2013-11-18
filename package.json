@@ -1,12 +1,12 @@
 {
-  "name": "GruntBowerEvaluation",
+  "name": "coolwall",
   "description": "MEAN - A Modern Stack: MongoDB, ExpressJS, AngularJS, NodeJS. (BONUS: Passport User Support).",
   "version": "0.1.0",
   "private": false,
-  "author": "Amos Haviv",
+  "author": "David Jimenez, Ouin, Edouard, Sinikka Schroeter, Steve Ben Ezra",
   "repository": {
     "type": "git",
-    "url": "https://github.com/linnovate/mean.git"
+    "url": "https://github.com/djimenezc/coolwall"
   },
   "engines": {
     "node": "0.10.x",

@@ -75,11 +75,29 @@ module.exports = function(grunt) {
             options: {
                 reporter: 'spec'
             },
-            src: ['test/**/*.js']
+            src: ['test/mocha/**/*.js']
+        },
+        protractor: {
+            options: {
+              configFile: "node_modules/protractor/referenceConf.js", // Default config file
+              keepAlive: true, // If false, the grunt process stops when the test fails.
+              args: {
+                // Arguments passed to the command
+              }
+            },
+            your_target: {
+              configFile: "config/e2e.conf.js", // Target-specific config file
+              options: {
+                args: {} // Target-specific arguments
+              }
+            },
         },
         env: {
             test: {
                 NODE_ENV: 'test'
+            },
+            integration_test: {
+                NODE_ENV: 'integration_test'
             }
         },
         sass: {                              // Task
@@ -101,6 +119,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-mocha-test');
+    grunt.loadNpmTasks('grunt-protractor-runner');
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-env');
@@ -115,6 +134,7 @@ module.exports = function(grunt) {
 
     //Test task.
     grunt.registerTask('test', ['env:test', 'mochaTest']);
+    grunt.registerTask('integration-test', ['env:integration_test','protractor']);
 
     //Uglify task.
     grunt.registerTask('minify', 'uglify');

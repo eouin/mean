@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 var should = require('should'),
-    app = require('../../server'),
+    app = require('../../../server'),
     mongoose = require('mongoose'),
     User = mongoose.model('User');
 
@@ -25,6 +25,7 @@ describe('<Unit Test>', function() {
                 username: 'user',
                 password: 'password'
             });
+            
             user3 = new User({
                 name: 'Admin',
                 email: 'admin@test.com',
@@ -63,7 +64,7 @@ describe('<Unit Test>', function() {
                     done();
                 });
             });
-
+            
             it('should be able to save Admin user whithout problems', function(done) {
                 user3.save(done);
             });

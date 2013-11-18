@@ -2,18 +2,18 @@
  * Module dependencies.
  */
 var should = require('should'),
-    app = require('../../server'),
+    app = require('../../../server'),
     mongoose = require('mongoose'),
     User = mongoose.model('User'),
-    Article = mongoose.model('Article');
+    Idea = mongoose.model('Idea');
 
 //Globals
 var user;
-var article;
+var idea;
 
 //The tests
 describe('<Unit Test>', function() {
-    describe('Model Article:', function() {
+    describe('Model Idea:', function() {
         beforeEach(function(done) {
             user = new User({
                 name: 'Full name',
@@ -23,10 +23,13 @@ describe('<Unit Test>', function() {
             });
 
             user.save(function(err) {
-                article = new Article({
-                    title: 'Article Title',
-                    content: 'Article Content',
-                    user: user
+                idea = new Idea({
+                    title: 'Idea Title',
+                    description: 'Idea Description',
+                    user: user,
+                    board_row : 0,
+                    board_column : 0,
+                    is_on_board : true
                 });
 
                 done();
@@ -35,16 +38,16 @@ describe('<Unit Test>', function() {
 
         describe('Method Save', function() {
             it('should be able to save without problems', function(done) {
-                return article.save(function(err) {
+                return idea.save(function(err) {
                     should.not.exist(err);
                     done();
                 });
             });
 
             it('should be able to show an error when try to save without title', function(done) {
-                article.title = '';
+                idea.title = '';
 
-                return article.save(function(err) {
+                return idea.save(function(err) {
                     should.exist(err);
                     done();
                 });
@@ -52,12 +55,12 @@ describe('<Unit Test>', function() {
         });
 
         afterEach(function(done) {
-            Article.remove({});
+            Idea.remove({});
             User.remove({});
             done();
         });
         after(function(done){
-            Article.remove().exec();
+            Idea.remove().exec();
             User.remove().exec();
             done();
         });
