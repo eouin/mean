@@ -25,6 +25,13 @@ describe('<Unit Test>', function() {
                 username: 'user',
                 password: 'password'
             });
+            user3 = new User({
+                name: 'Admin',
+                email: 'admin@test.com',
+                username: 'admin',
+                password: 'password',
+                is_admin : true
+            });
 
             done();
         });
@@ -55,6 +62,10 @@ describe('<Unit Test>', function() {
                     should.exist(err);
                     done();
                 });
+            });
+
+            it('should be able to save Admin user whithout problems', function(done) {
+                user3.save(done);
             });
         });
 
