@@ -59,3 +59,37 @@ logger.init(app, passport, mongoose);
 
 //expose app
 exports = module.exports = app;
+
+var User = mongoose.model('User');
+
+ //check if Admin user exists
+ User.findOne({
+    name: 'Admin'
+ })
+.exec(function(err, user) {
+    if (err) return;
+    if (user) {
+        console.log('Admin user already exists');
+        return;
+    } 
+
+    //create hardcoded Admin user
+    var oUser = {name: 'Admin',
+                 email: 'admin@sap.com',
+                 password: 'admin',
+                 provider : 'local',
+                 isAdmin : true
+                };
+
+    var adminUser = new User(oUser);
+    adminUser.save(function(err) {
+        if (err) {
+            console.log('failed to create Admin user');
+            return;;
+        }
+        console.log('Admin user created');
+    });
+   
+});
+
+
