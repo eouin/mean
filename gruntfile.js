@@ -77,6 +77,14 @@ module.exports = function(grunt) {
             },
             src: ['test/mocha/**/*.js']
         },
+        karma: {
+    	  unit: {
+    	    configFile: 'karma.conf.js',
+    	    browsers: ['PhantomJS'],
+    	    singleRun: true
+    	  }
+    	},
+        
         protractor: {
             options: {
               configFile: "node_modules/protractor/referenceConf.js", // Default config file
@@ -119,6 +127,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-mocha-test');
+    grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-protractor-runner');
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-concurrent');
@@ -133,7 +142,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['sassit', 'jshint', 'uglify', 'removelogging']);
 
     //Test task.
-    grunt.registerTask('test', ['env:test', 'mochaTest']);
+    grunt.registerTask('test', ['env:test', 'mochaTest','karma']);
     grunt.registerTask('integration-test', ['env:integration_test','protractor']);
 
     //Uglify task.
