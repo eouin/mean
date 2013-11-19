@@ -12,10 +12,10 @@ module.exports = function(grunt) {
                 dest: 'public/dist/app.min.js'
             }
         },
-       removelogging: {
+        removelogging: {
             dist: {
-                src: "public/dist/app.min.js",
-                dest: "public/dist/app.min.js"
+                src: 'public/dist/app.min.js',
+                dest: 'public/dist/app.min.js'
             }
         },
         watch: {
@@ -46,7 +46,12 @@ module.exports = function(grunt) {
             }
         },
         jshint: {
-            all: ['gruntfile.js', 'public/js/**/*.js', 'test/**/*.js', 'app/**/*.js']
+            all: ['gruntfile.js', 'public/js/**/*.js', 'test/**/*.js', 'app/**/*.js'],
+            with_overrides: {
+                options: {
+                    indent: 4
+                }
+            }
         },
         nodemon: {
             dev: {
@@ -66,7 +71,7 @@ module.exports = function(grunt) {
             }
         },
         concurrent: {
-            tasks: ['nodemon', 'watch'], 
+            tasks: ['nodemon', 'watch'],
             options: {
                 logConcurrentOutput: true
             }
@@ -106,18 +111,21 @@ module.exports = function(grunt) {
             },
             integration_test: {
                 NODE_ENV: 'integration_test'
+            },
+            dev: {
+                NODE_ENV: 'development'
             }
         },
-        sass: {                              // Task
-            dist: {                            // Target
-              options: {                       // Target options
-                style: 'expanded'
-              },
-              files: {                         // Dictionary of files
-                'public/css/common.css': 'public/css/common.scss',       // 'destination': 'source'               
-              }
+        sass: { // Task
+            dist: { // Target
+                options: { // Target options
+                    style: 'expanded'
+                },
+                files: { // Dictionary of files
+                    'public/css/common.css': 'public/css/common.scss' // 'destination': 'source'
+                }
             }
-          }
+        }
     });
 
     //Load NPM tasks
@@ -152,9 +160,8 @@ module.exports = function(grunt) {
     grunt.registerTask('remove-logging', 'removelogging');
 
     //Start server
-    grunt.registerTask('server', 'concurrent');
+    grunt.registerTask('server', 'env:dev', 'concurrent');
 
     //run sass
-    grunt.registerTask('sassit', 'sass');    
+    grunt.registerTask('sassit', 'sass');
 };
-
