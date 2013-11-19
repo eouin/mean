@@ -1,6 +1,6 @@
-//Articles service used for articles REST endpoint
+//Ideas service used for articles REST endpoint
 angular.module('mean.ideas').factory("Ideas", ['$resource', function($resource) {
-    return $resource('articles/:articleId', {
+    return $resource('ideas/:ideaId', {
         articleId: '@_id'
     }, {
         update: {
