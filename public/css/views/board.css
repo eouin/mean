@@ -1,11 +1,11 @@
 
 .list {
     width: 180px;
-    height: 135px;
+    height: 220px;
     float: left;
     border: 2px solid black;
     margin: 5px;
-    overflow-y: auto;
+    /*overflow-y: auto;*/
 }
 
 .list2 {
@@ -33,4 +33,15 @@
 .dropArea {
     #padding: 9px;
     color: #555;
+}
+
+.container {
+    margin-left: 220px;
+    margin-right: 0;
+}
+
+.containerRow {
+    height: 250px;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }

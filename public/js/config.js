@@ -17,7 +17,7 @@ window.app.config(['$routeProvider',
         when('/', {
             templateUrl: 'views/index.html'
         }).
-        when('dashboard', {
+        when('/dashboard', {
             templateUrl: 'views/board.html'
         }).
         otherwise({
