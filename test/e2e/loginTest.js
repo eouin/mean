@@ -14,7 +14,7 @@ describe('Login page', function() {
 
 		var welcomeMessage = element(by.css('h1'));
 
-		expect(welcomeMessage.getText()).toEqual('This is the home view');
+		expect(welcomeMessage.getText()).toEqual('Cool Wall');
 		
 //		wait(function () {
 //			
