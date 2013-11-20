@@ -1,6 +1,6 @@
 {
   "name": "coolwall",
-  "description": "MEAN - A Modern Stack: MongoDB, ExpressJS, AngularJS, NodeJS. (BONUS: Passport User Support).",
+  "description": "Coolwall - A Modern Stack: MongoDB, ExpressJS, AngularJS, NodeJS. (BONUS: Passport User Support).",
   "version": "0.1.0",
   "private": false,
   "author": "David Jimenez, Ouin, Edouard, Sinikka Schroeter, Steve Ben Ezra",
@@ -21,6 +21,7 @@
     "express": "latest",
     "jade": "latest",
     "mongoose": "latest",
+    "winston": "latest",
     "connect-mongo": "latest",
     "connect-flash": "latest",
     "crypto": "latest",
@@ -37,7 +38,8 @@
     "bower": "latest",
     "grunt": "latest",
     "grunt-cli": "latest",
-    "grunt-env": "latest"
+    "grunt-env": "latest",
+    "supertest-session" : "latest"
   },
   "devDependencies": {
     "supertest": "latest",

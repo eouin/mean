@@ -7,7 +7,6 @@
         "angular-route": "1.2.1",
         "angular-resource": "1.2.1",
         "angular-cookies": "1.2.1",
-        "angular-bootstrap": "0.7.0-SNAPSHOT",
         "angular-ui-utils": "0.0.4"
     }
 }

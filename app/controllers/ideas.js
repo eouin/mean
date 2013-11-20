@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    idea = mongoose.model('Idea'),
+    Idea = mongoose.model('Idea'),
     _ = require('underscore');
 
 
@@ -10,7 +10,7 @@ var mongoose = require('mongoose'),
  * Find idea by id
  */
 exports.idea = function(req, res, next, id) {
-    idea.load(id, function(err, idea) {
+    Idea.load(id, function(err, idea) {
         if (err) return next(err);
         if (!idea) return next(new Error('Failed to load idea ' + id));
         req.idea = idea;
@@ -21,12 +21,12 @@ exports.idea = function(req, res, next, id) {
 /**
  * Create a idea
  */
-exports.create = function(req, res) {
-    var idea = new idea(req.body);
+exports.create = function(req, res) {    
+    var idea = new Idea(req.body);
     idea.user = req.user;
 
     idea.save(function(err) {
-        if (err) {
+        if (err) {           
             return res.send('users/signup', {
                 errors: err.errors,
                 idea: idea
@@ -41,6 +41,9 @@ exports.create = function(req, res) {
  * Update a idea
  */
 exports.update = function(req, res) {
+    console.log(req.idea);
+    console.log(req.body);
+
     var idea = req.idea;
 
     idea = _.extend(idea, req.body);
@@ -78,7 +81,7 @@ exports.show = function(req, res) {
  * List of ideas
  */
 exports.all = function(req, res) {
-    idea.find().sort('-created').populate('user', 'name username').exec(function(err, ideas) {
+    Idea.find().sort('-created').populate('user', 'name username').exec(function(err, ideas) {
         if (err) {
             res.render('error', {
                 status: 500
