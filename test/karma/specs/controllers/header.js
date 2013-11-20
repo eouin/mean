@@ -3,7 +3,7 @@
 describe('Controller: HeaderController', function() {
 
 	// load the controller's module
-	beforeEach(module('mean.system'));
+	beforeEach(module('coolwall.system'));
 
 	var HeaderController, scope, HeaderCtrl;
 
