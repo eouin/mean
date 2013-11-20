@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    idea = mongoose.model('Idea'),
+    Idea = mongoose.model('Idea'),
     _ = require('underscore');
 
 
@@ -10,7 +10,7 @@ var mongoose = require('mongoose'),
  * Find idea by id
  */
 exports.idea = function(req, res, next, id) {
-    idea.load(id, function(err, idea) {
+    Idea.load(id, function(err, idea) {
         if (err) return next(err);
         if (!idea) return next(new Error('Failed to load idea ' + id));
         req.idea = idea;
@@ -21,12 +21,12 @@ exports.idea = function(req, res, next, id) {
 /**
  * Create a idea
  */
-exports.create = function(req, res) {
-    var idea = new idea(req.body);
+exports.create = function(req, res) {    
+    var idea = new Idea(req.body);
     idea.user = req.user;
 
     idea.save(function(err) {
-        if (err) {
+        if (err) {           
             return res.send('users/signup', {
                 errors: err.errors,
                 idea: idea
