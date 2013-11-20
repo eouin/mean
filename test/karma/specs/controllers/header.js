@@ -5,7 +5,7 @@ describe('Controller: HeaderController', function() {
 	// load the controller's module
 	beforeEach(module('mean.system'));
 
-	var HeaderController, scope,HeaderCtrl;
+	var HeaderController, scope, HeaderCtrl;
 
 	// Initialize the controller and a mock scope
 	beforeEach(inject(function($controller, $rootScope) {
