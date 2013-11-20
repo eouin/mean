@@ -78,24 +78,65 @@ describe('Idea REST API Tests', function() {
 			});
 		});
 
-		// it('Update idea', function(done) {
+		it('Update idea', function(done) {
 
-		// this.sess
-		// .post('/ideas')
-		// .send(idea)
-		// .expect(200) //Status code
-		// .end(function(err,res) {
-		// if (err) {
-		// throw err;
-		// }
-		// //console.log(res.body);
-		// myidea = res.body;
-		// res.body.should.have.property('_id');
-		// res.body.title.should.equal('Idea Title');
-		// done();
-		// });
-		// });
-		// });
+			myidea.title = 'New title';
+		//	console.log('/ideas/' + myidea._id);
+
+			this.sess
+				.put('/ideas/' + myidea._id )
+				.send(myidea)
+				.expect(200) //Status code
+				.end(function(err,res) {
+					if (err) {
+						throw err;
+					}
+
+				//	console.log(res.body);
+					myidea = res.body;
+					res.body.should.have.property('_id');
+					res.body.title.should.equal('New title');
+					done();
+				});
+			});
+	
+	it('Get all ideas', function(done) {
+			
+			this.sess
+				.get('/ideas')
+				//.send(myidea)
+				.expect(200) //Status code
+				.end(function(err,res) {
+					if (err) {
+						throw err;
+					}
+
+					//console.log(res.body);
+					//myidea = res.body;
+					res.body.should.have.length(1);
+					
+					done();
+				});
+			});	
+
+	it('Delete idea', function(done) {
+			
+			this.sess
+				.del('/ideas/' + myidea._id)
+				//.send(myidea)
+				.expect(200) //Status code
+				.end(function(err,res) {
+					if (err) {
+						throw err;
+					}
+
+					//console.log(res.body);
+					//myidea = res.body;
+					res.body.should.have.property('_id');
+					
+					done();
+				});
+			});	
 
 	});
 });

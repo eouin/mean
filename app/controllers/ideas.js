@@ -41,6 +41,9 @@ exports.create = function(req, res) {
  * Update a idea
  */
 exports.update = function(req, res) {
+    console.log(req.idea);
+    console.log(req.body);
+
     var idea = req.idea;
 
     idea = _.extend(idea, req.body);
@@ -78,7 +81,7 @@ exports.show = function(req, res) {
  * List of ideas
  */
 exports.all = function(req, res) {
-    idea.find().sort('-created').populate('user', 'name username').exec(function(err, ideas) {
+    Idea.find().sort('-created').populate('user', 'name username').exec(function(err, ideas) {
         if (err) {
             res.render('error', {
                 status: 500
