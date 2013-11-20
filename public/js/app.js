@@ -3,4 +3,4 @@ window.app = angular.module('coolwall', ['ngRoute', 'ngCookies', 'ngResource', '
 angular.module('coolwall.system', []);
 angular.module('coolwall.articles', []);
 angular.module('coolwall.ideas', []);
-
+angular.module('coolwall.board', []);

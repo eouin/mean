@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     // Project Configuration
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -83,26 +83,26 @@ module.exports = function(grunt) {
             src: ['test/mocha/**/*.js']
         },
         karma: {
-    	  unit: {
-    	    configFile: 'karma.conf.js',
-    	    browsers: ['PhantomJS'],
-    	    singleRun: true
-    	  }
-    	},
-        
+            unit: {
+                configFile: 'karma.conf.js',
+                browsers: ['PhantomJS'],
+                singleRun: true
+            }
+        },
+
         protractor: {
             options: {
-              configFile: "node_modules/protractor/referenceConf.js", // Default config file
-              keepAlive: true, // If false, the grunt process stops when the test fails.
-              args: {
-                // Arguments passed to the command
-              }
+                configFile: "node_modules/protractor/referenceConf.js", // Default config file
+                keepAlive: true, // If false, the grunt process stops when the test fails.
+                args: {
+                    // Arguments passed to the command
+                }
             },
             your_target: {
-              configFile: "config/e2e.conf.js", // Target-specific config file
-              options: {
-                args: {} // Target-specific arguments
-              }
+                configFile: "config/e2e.conf.js", // Target-specific config file
+                options: {
+                    args: {} // Target-specific arguments
+                }
             },
         },
         env: {
@@ -150,8 +150,8 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['sassit', 'jshint', 'uglify', 'removelogging']);
 
     //Test task.
-    grunt.registerTask('test', ['env:test', 'mochaTest','karma']);
-    grunt.registerTask('integration-test', ['env:integration_test','protractor']);
+    grunt.registerTask('test', ['env:test', 'mochaTest', 'karma']);
+    grunt.registerTask('integration-test', ['env:integration_test', 'protractor']);
 
     //Uglify task.
     grunt.registerTask('minify', 'uglify');

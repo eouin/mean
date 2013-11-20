@@ -1,0 +1,22 @@
+<section ng-controller="BoardController">
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="list" id="srcList" data-drop="true" ng-model="phones" jqyoui-droppable="{multiple: true}">
+            <div class="dropArea">
+                <div class="item"  ng-repeat="phone in phones" id="{{phone.name}}" ng-model="phones" data-drag="true"  data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{index:{{$index}},animate:true}">
+                    {{phone.name}}
+                </div>
+            </div>
+        </div>
+        <div class="list" data-drop="true" ng-model="list1" jqyoui-droppable="{multiple: true}" id="destList">
+            <div class="dropArea">
+                <div ng-repeat="item in list1" ng-show="item.name" class="item" id="{{item.name}}" ng-model="list1" data-drag="true"  data-jqyoui-options="{revert: 'invalid'}" jqyoui-draggable="{index:{{$index}},animate:true}">
+                    {{item.name}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
