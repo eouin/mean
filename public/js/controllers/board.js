@@ -1,14 +1,14 @@
 angular.module('coolwall.board').controller('BoardController', ['$scope', 'Global', function($scope, Global) {
     $scope.cool = {
         proven: [
-        {'name': 'Nexus S',
-            'snippet': 'Fast just got faster with Nexus S.'},
-        {'name': 'Motorola XOOM™ with Wi-Fi',
-            'snippet': 'The Next, Next Generation tablet.'},
-        {'name': 'MOTOROLA XOOM™',
-            'snippet': 'The Next, Next Generation tablet.'},
-        {'name': 'MOTOROLA XOOM111™',
-            'snippet': 'The Next, Next Generation tablet.111'}
+        {'name': 'GitHub',
+            'snippet': 'Version Control'},
+        {'name': 'AngularJS',
+            'snippet': 'JavaScript MVC framework'},
+        {'name': 'Grunt',
+            'snippet': 'JavaScript Task Runner'},
+        {'name': 'Bower',
+            'snippet': 'Package Manager'}
         ],
         unproven: [],
         somethingInBetween: []
@@ -25,7 +25,5 @@ angular.module('coolwall.board').controller('BoardController', ['$scope', 'Globa
         unproven: [],
         somethingInBetween: []
     };
-
-    $scope.list1 = [];
 
 }]);
