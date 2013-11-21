@@ -73,6 +73,20 @@ module.exports = function(app, passport, auth) {
 
     //Home route
     var index = require('../app/controllers/index');
-    app.get('/', index.render);
 
+    app.get('/', users.signin);
+
+    app.get('/home', index.render);
+
+   //Idea Routes
+    var ideas = require('../app/controllers/ideas');
+    app.get('/ideas', ideas.all);
+    app.post('/ideas', auth.requiresLogin, ideas.create);
+    app.get('/ideas/:ideaId', ideas.show);
+    app.put('/ideas/:ideaId', auth.requiresLogin, auth.idea.hasAuthorization, ideas.update);
+    app.del('/ideas/:ideaId', auth.requiresLogin, auth.idea.hasAuthorization, ideas.destroy);
+
+    //Finish with setting up the ideaId param
+    app.param('ideaId', ideas.idea);
 };
+

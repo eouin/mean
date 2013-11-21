@@ -1,4 +1,4 @@
-angular.module('mean.system').controller('HeaderController', ['$scope', 'Global', function ($scope, Global) {
+angular.module('coolwall.system').controller('HeaderController', ['$scope', 'Global', function ($scope, Global) {
     $scope.global = Global;
 
     $scope.menu = [{
@@ -8,6 +8,6 @@ angular.module('mean.system').controller('HeaderController', ['$scope', 'Global'
         "title": "Create New Article",
         "link": "articles/create"
     }];
-    
+
     $scope.isCollapsed = false;
 }]);

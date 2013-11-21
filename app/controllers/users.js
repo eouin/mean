@@ -8,7 +8,7 @@ var mongoose = require('mongoose'),
  * Auth callback
  */
 exports.authCallback = function(req, res, next) {
-    res.redirect('/');
+    res.redirect('/home');
 };
 
 /**
@@ -45,7 +45,7 @@ exports.signout = function(req, res) {
  * Session
  */
 exports.session = function(req, res) {
-    res.redirect('/');
+    res.redirect('/home');
 };
 
 /**
@@ -65,7 +65,7 @@ exports.create = function(req, res) {
         }
         req.logIn(user, function(err) {
             if (err) return next(err);
-            return res.redirect('/');
+            return res.redirect('/home');
         });
     });
 };
@@ -101,6 +101,7 @@ exports.user = function(req, res, next, id) {
             if (err) return next(err);
             if (!user) return next(new Error('Failed to load User ' + id));
             req.profile = user;
+            
             next();
         });
 };

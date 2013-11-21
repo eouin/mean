@@ -31,3 +31,16 @@ exports.article = {
         next();
     }
 };
+
+
+/**
+ * Idea authorizations routing middleware
+ */
+exports.idea = {
+    hasAuthorization: function(req, res, next) {
+        if (req.idea.user.id != req.user.id) {
+            return res.send(401, 'User is not authorized');
+        }
+        next();
+    }
+};

@@ -14,8 +14,8 @@
         "callbackURL": "http://localhost:3000/auth/twitter/callback"
     },
     "github": {
-        "clientID": "APP_ID",
-        "clientSecret": "APP_SECRET",
+        "clientID": "c28385cc49ca174db57a",
+        "clientSecret": "13f3ac6b775204001c2b6d1f536105a2495fc8ab",
         "callbackURL": "http://localhost:3000/auth/github/callback"
     },
     "google": {

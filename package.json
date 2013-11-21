@@ -1,12 +1,12 @@
 {
-  "name": "GruntBowerEvaluation",
-  "description": "MEAN - A Modern Stack: MongoDB, ExpressJS, AngularJS, NodeJS. (BONUS: Passport User Support).",
+  "name": "coolwall",
+  "description": "Coolwall - A Modern Stack: MongoDB, ExpressJS, AngularJS, NodeJS. (BONUS: Passport User Support).",
   "version": "0.1.0",
   "private": false,
-  "author": "Amos Haviv",
+  "author": "David Jimenez, Ouin, Edouard, Sinikka Schroeter, Steve Ben Ezra",
   "repository": {
     "type": "git",
-    "url": "https://github.com/linnovate/mean.git"
+    "url": "https://github.com/djimenezc/coolwall"
   },
   "engines": {
     "node": "0.10.x",
@@ -21,6 +21,7 @@
     "express": "latest",
     "jade": "latest",
     "mongoose": "latest",
+    "winston": "latest",
     "connect-mongo": "latest",
     "connect-flash": "latest",
     "crypto": "latest",
@@ -37,7 +38,8 @@
     "bower": "latest",
     "grunt": "latest",
     "grunt-cli": "latest",
-    "grunt-env": "latest"
+    "grunt-env": "latest",
+    "supertest-session" : "latest"
   },
   "devDependencies": {
     "supertest": "latest",
@@ -49,6 +51,8 @@
     "grunt-mocha-test": "latest",
     "grunt-contrib-uglify": "~0.2.7",
     "grunt-remove-logging": "~0.1.1",
-    "grunt-contrib-sass": "~0.5.0"
+    "grunt-contrib-sass": "~0.5.0",
+    "grunt-karma" : "latest",
+    "grunt-protractor-runner" : "latest"
   }
 }
