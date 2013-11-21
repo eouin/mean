@@ -90,87 +90,49 @@ module.exports = function (grunt) {
             }
         },
 
-        protractor: {
-            options: {
-                configFile: "node_modules/protractor/referenceConf.js", // Default config file
-                keepAlive: true, // If false, the grunt process stops when the test fails.
+        protractor : {
+            options : {
+                configFile: "node_modules/protractor/referenceConf.js", // Default
+                // config
+                // file
+                keepAlive: true, // If false, the grunt process stops
+                // when the test fails.
                 args: {
                     // Arguments passed to the command
                 }
             },
-            your_target: {
-                configFile: "config/e2e.conf.js", // Target-specific config file
-                options: {
-                    args: {} // Target-specific arguments
+            your_target : {
+                configFile : "config/e2e.conf.js", // Target-specific
+                // config file
+                options : {
+                    args : {}
+                    // Target-specific arguments
                 }
             },
         },
-        env: {
-            test: {
-                NODE_ENV: 'test'
+        env : {
+            test : {
+                NODE_ENV : 'test'
             },
-            integration_test: {
-                NODE_ENV: 'integration_test'
+            integration_test : {
+                NODE_ENV : 'integration_test'
             },
-            dev: {
-                NODE_ENV: 'development'
+            dev : {
+                NODE_ENV : 'development'
             }
         },
-        sass: { // Task
-            dist: { // Target
-                options: { // Target options
-                    style: 'expanded'
+        sass : { // Task
+            dist : { // Target
+                options : { // Target options
+                    style : 'expanded'
                 },
-                files: { // Dictionary of files
-                    'public/css/common.css': 'public/css/common.scss' // 'destination': 'source'
+                files : { // Dictionary of files
+                    'public/css/common.css' : 'public/css/common.scss' // 'destination':
+                    // 'source'
                 }
             }
         }
     });
-
-				protractor : {
-					options : {
-						configFile : "node_modules/protractor/referenceConf.js", // Default
-																					// config
-																					// file
-						keepAlive : true, // If false, the grunt process stops
-											// when the test fails.
-						args : {
-						// Arguments passed to the command
-						}
-					},
-					your_target : {
-						configFile : "config/e2e.conf.js", // Target-specific
-															// config file
-						options : {
-							args : {}
-						// Target-specific arguments
-						}
-					},
-				},
-				env : {
-					test : {
-						NODE_ENV : 'test'
-					},
-					integration_test : {
-						NODE_ENV : 'integration_test'
-					},
-					dev : {
-						NODE_ENV : 'development'
-					}
-				},
-				sass : { // Task
-					dist : { // Target
-						options : { // Target options
-							style : 'expanded'
-						},
-						files : { // Dictionary of files
-							'public/css/common.css' : 'public/css/common.scss' // 'destination':
-																				// 'source'
-						}
-					}
-				}
-			});
 
 	// Load NPM tasks
 	grunt.loadNpmTasks('grunt-contrib-uglify');

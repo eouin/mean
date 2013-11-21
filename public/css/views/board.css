@@ -1,6 +1,6 @@
 
 .list {
-    width: 180px;
+    width: 275px;
     height: 220px;
     float: left;
     border: 2px solid black;
@@ -18,9 +18,9 @@
 
 
 .item {
-    width: 150px;
+    width: 250px;
     height: 40px;
-    border: 1px solid red;
+    border: 1px solid grey;
     margin: 2px;
 }
 
